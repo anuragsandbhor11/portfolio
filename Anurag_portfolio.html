@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anurag Sandbhor - Portfolio</title>
+    <style>
+      :root {
+        --primary-color: #ffa500;
+        --secondary-color: #aaa;
+        --dark-color: #000;
+        --light-color: #fff;
+        --accent-color: #ffa500;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--dark-color);
+        color: var(--light-color);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        padding: 20px 0;
+        background-color: var(--dark-color);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--light-color);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 30px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--light-color);
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent-color);
+      }
+
+      .nav-links a.active {
+        color: var(--accent-color);
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 5px;
+      }
+
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        padding-top: 80px;
+      }
+
+      .section {
+        padding: 100px 0;
+      }
+
+      .section-title {
+        margin-bottom: 60px;
+        position: relative;
+      }
+
+      .section-title h2 {
+        font-size: 48px;
+        color: var(--light-color);
+        margin-bottom: 20px;
+        display: inline-block;
+      }
+
+      .section-title .background-text {
+        position: absolute;
+        font-size: 150px;
+        top: -40px;
+        left: 0;
+        color: rgba(128, 128, 128, 0.1);
+        z-index: -1;
+        font-weight: 900;
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 50px;
+      }
+
+      .profile-image {
+        text-align: center;
+      }
+
+      .profile-image img {
+        width: 100%;
+        max-width: 300px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      .about-details {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .about-item {
+        margin-bottom: 15px;
+      }
+
+      .about-item-label {
+        font-weight: bold;
+        color: var(--secondary-color);
+        width: 120px;
+        display: inline-block;
+      }
+
+      .skills {
+        margin-top: 40px;
+      }
+
+      .skill-item {
+        margin-bottom: 20px;
+      }
+
+      .skill-item h4 {
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .skill-bar {
+        height: 10px;
+        background-color: #333;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      .skill-progress {
+        height: 100%;
+        background-color: var(--accent-color);
+      }
+
+      .about-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .info-item {
+        margin-bottom: 25px;
+      }
+
+      .info-label {
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: var(--secondary-color);
+      }
+
+      .experience-cards,
+      .education-cards,
+      .project-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .card {
+        background-color: #111;
+        border-radius: 5px;
+        padding: 25px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .card h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: var(--accent-color);
+      }
+
+      .card h4 {
+        font-size: 16px;
+        margin-bottom: 5px;
+        color: var(--light-color);
+      }
+
+      .card p {
+        font-size: 14px;
+        color: var(--secondary-color);
+        margin-bottom: 15px;
+      }
+
+      .card .duration {
+        font-size: 14px;
+        color: var(--accent-color);
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 15px;
+      }
+
+      .tech-tag {
+        padding: 4px 10px;
+        background-color: rgba(255, 165, 0, 0.2);
+        border-radius: 20px;
+        font-size: 12px;
+        color: var(--accent-color);
+      }
+
+      .contact {
+        background-color: #080808;
+      }
+
+      .contact-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .contact-info {
+        width: 100%;
+      }
+
+      .contact-info p {
+        margin-bottom: 20px;
+        font-size: 16px;
+        color: var(--secondary-color);
+      }
+
+      .contact-details {
+        margin-top: 30px;
+      }
+
+      .contact-details p {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      .contact-details i {
+        margin-right: 10px;
+        color: var(--accent-color);
+      }
+
+      .social-links {
+        display: flex;
+        margin-top: 30px;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: #222;
+        color: var(--light-color);
+        border-radius: 50%;
+        margin-right: 15px;
+        transition: background-color 0.3s;
+        text-decoration: none;
+      }
+
+      .social-links a:hover {
+        background-color: var(--accent-color);
+      }
+
+      footer {
+        background-color: #080808;
+        color: var(--secondary-color);
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .bar {
+        width: 25px;
+        height: 3px;
+        background-color: var(--light-color);
+        margin: 3px 0;
+        transition: 0.4s;
+      }
+
+      .download-resume {
+        display: inline-block;
+        background-color: var(--accent-color);
+        color: var(--dark-color);
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .download-resume:hover {
+        background-color: #ff8c00;
+        transform: translateY(-2px);
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: flex;
+        }
+
+        .nav-links {
+          position: fixed;
+          background-color: var(--dark-color);
+          height: 100vh;
+          width: 100%;
+          top: 80px;
+          left: -100%;
+          flex-direction: column;
+          transition: 0.5s;
+          padding: 20px;
+        }
+
+        .nav-links.active {
+          left: 0;
+        }
+
+        .nav-links li {
+          margin: 20px 0;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+        }
+
+        .about-info {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="navbar">
+          <div class="logo">Anurag Sandbhor</div>
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about" class="active">About</a></li>
+            <li><a href="#experience">Resume</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <div class="menu-toggle">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>About Me</h2>
+          <div class="background-text">About</div>
+        </div>
+        <div class="about-content">
+          <div class="profile-image">
+            <img src="/api/placeholder/400/400" alt="Anurag Sandbhor" />
+            <a href="#" class="download-resume" id="downloadResume">
+              <i class="fas fa-download"></i> Download Resume
+            </a>
+            <div class="skills">
+              <div class="skill-item">
+                <h4>Python <span>85%</span></h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <h4>Data Visualization <span>90%</span></h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <h4>Statistical Analysis <span>85%</span></h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <h4>Machine Learning <span>80%</span></h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <h4>SQL <span>75%</span></h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="about-details">
+            <div class="about-item">
+              <span class="about-item-label">Name:</span>
+              <span>ANURAG SANDBHOR</span>
+            </div>
+            <div class="about-item">
+              <span class="about-item-label">College:</span>
+              <span>Indira College of Engineering and Management, Pune</span>
+            </div>
+            <div class="about-item">
+              <span class="about-item-label">Experience:</span>
+              <span>1+ Years in AI/ML and Data Science</span>
+            </div>
+            <div class="about-item">
+              <span class="about-item-label">Address:</span>
+              <span>Pune, India</span>
+            </div>
+            <div class="about-info">
+              <div>
+                <div class="info-item">
+                  <div class="info-label">Profile:</div>
+                  <div>
+                    Large Language Models, Computer Vision, Machine Learning,
+                    Deep Learning, Data Science, Artificial Intelligence &
+                    Analytics
+                  </div>
+                </div>
+                <div class="info-item">
+                  <div class="info-label">Domain:</div>
+                  <div>
+                    Data Analysis, AI/ML Research, Computer Vision Applications,
+                    NLP Systems
+                  </div>
+                </div>
+                <div class="info-item">
+                  <div class="info-label">Education:</div>
+                  <div>
+                    Bachelor of Engineering (Artificial Intelligence and Data
+                    Science)
+                  </div>
+                </div>
+                <div class="info-item">
+                  <div class="info-label">Language:</div>
+                  <div>English, Hindi, Marathi</div>
+                </div>
+              </div>
+              <div>
+                <div class="info-item">
+                  <div class="info-label">BI Tools:</div>
+                  <div>Microsoft Power BI, Matplotlib, Seaborn</div>
+                </div>
+                <div class="info-item">
+                  <div class="info-label">Other Skills:</div>
+                  <div>
+                    PyTorch, TensorFlow, OpenCV, Pandas, NumPy, scikit-learn,
+                    LangChain, LangGraph, Vector DB, RAG
+                  </div>
+                </div>
+                <div class="info-item">
+                  <div class="info-label">Interest:</div>
+                  <div>
+                    Solving real-world problems with AI, Building intelligent
+                    systems, Learning new technologies
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Work Experience</h2>
+          <div class="background-text">Resume</div>
+        </div>
+        <div class="experience-cards">
+          <div class="card">
+            <h3>AI/ML Intern</h3>
+            <h4>DeCloud Labs</h4>
+            <p class="duration">January 2025</p>
+            <p>
+              Led the development of cutting-edge AI solutions using Large
+              Language Models (LLMs) with a focus on enterprise-grade
+              scalability and performance.
+            </p>
+            <p>
+              Engineered robust RAG (Retrieval-Augmented Generation) systems
+              that improved information accuracy by 35%, allowing for better
+              contextual understanding.
+            </p>
+            <p>
+              Created efficient vector database implementations that reduced
+              query latency by 40% while maintaining high precision in
+              information retrieval.
+            </p>
+            <p>
+              Designed and implemented seamless AI pipelines using LangChain and
+              LangGraph frameworks that automated document processing workflows.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">LLMs</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">Vector Databases</span>
+              <span class="tech-tag">LangChain</span>
+              <span class="tech-tag">LangGraph</span>
+              <span class="tech-tag">Python</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Computer Vision Intern</h3>
+            <h4>21 Spheres</h4>
+            <p class="duration">December 2024 – January 2025</p>
+            <p>
+              Successfully implemented YOLO (You Only Look Once) algorithm for
+              real-time object detection and recognition, achieving 95% accuracy
+              on custom datasets.
+            </p>
+            <p>
+              Developed optimized image processing pipelines that reduced
+              computation time by 30% while improving detection precision on
+              low-quality images.
+            </p>
+            <p>
+              Collaborated with the research team to enhance object tracking
+              capabilities in dynamic environments using advanced computer
+              vision techniques.
+            </p>
+            <p>
+              Created a comprehensive evaluation framework to benchmark various
+              model configurations, leading to the selection of optimal
+              parameters.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">YOLO</span>
+              <span class="tech-tag">OpenCV</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Object Detection</span>
+              <span class="tech-tag">Computer Vision</span>
+              <span class="tech-tag">Image Processing</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Data Science and AI/ML Intern</h3>
+            <h4>Ybi Foundation</h4>
+            <p class="duration">April 2024 – July 2024</p>
+            <p>
+              Optimized machine learning models across diverse datasets,
+              achieving accuracy improvements of up to 25% over baseline
+              implementations.
+            </p>
+            <p>
+              Conducted thorough performance benchmarking of various ML
+              algorithms to identify the most efficient solutions for specific
+              use cases.
+            </p>
+            <p>
+              Gained hands-on experience in model training, hyperparameter
+              optimization, and fine-tuning techniques for both classical ML and
+              deep learning models.
+            </p>
+            <p>
+              Participated in the development of data preprocessing pipelines
+              that ensured high-quality inputs for machine learning models.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">scikit-learn</span>
+              <span class="tech-tag">TensorFlow</span>
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">Machine Learning</span>
+              <span class="tech-tag">Data Science</span>
+              <span class="tech-tag">Python</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Artificial Intelligence Intern</h3>
+            <h4>AMG Technology</h4>
+            <p class="duration">April 2024 – May 2024</p>
+            <p>
+              Refined and transformed raw data into high-quality datasets using
+              Pandas and NumPy, enabling more accurate ML model training.
+            </p>
+            <p>
+              Built and evaluated various machine learning models with
+              scikit-learn, focusing on classification and regression tasks for
+              business insights.
+            </p>
+            <p>
+              Developed data visualization components using Matplotlib and
+              Seaborn to effectively communicate findings to non-technical
+              stakeholders.
+            </p>
+            <p>
+              Contributed to the design of automated data pipelines that
+              streamlined the ETL process for continuous model updating.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">NumPy</span>
+              <span class="tech-tag">scikit-learn</span>
+              <span class="tech-tag">Data Processing</span>
+              <span class="tech-tag">Data Analysis</span>
+              <span class="tech-tag">Python</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Projects</h2>
+          <div class="background-text">Projects</div>
+        </div>
+        <div class="project-cards">
+          <div class="card">
+            <h3>Ocean Route Recommendation System (AquaNav)</h3>
+            <p class="duration">Advanced AI-based Maritime Navigation</p>
+            <p>
+              Developed a sophisticated AI-driven ocean route optimization
+              system that leverages the D* Lite algorithm to dynamically plan
+              and adjust maritime paths in real-time based on changing
+              conditions.
+            </p>
+            <p>
+              Created a comprehensive data integration system that combines
+              environmental factors (weather patterns, ocean currents, wave
+              heights) with geographical data to generate optimal routes that
+              maximize safety and efficiency.
+            </p>
+            <p>
+              Implemented a fuel consumption prediction model that resulted in
+              estimated fuel savings of 15-20% compared to traditional routing
+              methods.
+            </p>
+            <p>
+              Designed an intuitive user interface that allows maritime
+              operators to visualize multiple route options and quickly respond
+              to changing conditions.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">D* Lite Algorithm</span>
+              <span class="tech-tag">Graph Theory</span>
+              <span class="tech-tag">Data Integration</span>
+              <span class="tech-tag">Real-time Systems</span>
+              <span class="tech-tag">Path Optimization</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Cancer Detection System</h3>
+            <p class="duration">Medical AI Application</p>
+            <p>
+              Developed a high-precision machine learning system for early
+              breast cancer detection using the Wisconsin Breast Cancer dataset,
+              achieving 95% accuracy in classifying malignant and benign tumors.
+            </p>
+            <p>
+              Implemented advanced feature selection techniques that identified
+              the most significant diagnostic indicators, improving model
+              interpretability for medical professionals.
+            </p>
+            <p>
+              Created a comprehensive evaluation framework with cross-validation
+              to ensure model robustness and reliability in clinical settings.
+            </p>
+            <p>
+              Designed a user-friendly interface that presents results with
+              confidence scores and visualization of key diagnostic factors.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">scikit-learn</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Medical AI</span>
+              <span class="tech-tag">Data Analysis</span>
+              <span class="tech-tag">Classification</span>
+              <span class="tech-tag">Feature Selection</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Image-to-Text using OCR</h3>
+            <p class="duration">Computer Vision Application</p>
+            <p>
+              Built a comprehensive OCR system capable of extracting text from
+              various image types with high accuracy, even in challenging
+              conditions with low contrast or noise.
+            </p>
+            <p>
+              Implemented advanced preprocessing techniques including adaptive
+              thresholding, noise reduction, and skew correction to enhance text
+              recognition quality.
+            </p>
+            <p>
+              Developed post-processing algorithms to improve OCR output through
+              context-aware error correction and language modeling.
+            </p>
+            <p>
+              Created a flexible API that supports multiple image formats and
+              can be integrated into various document processing workflows.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Tesseract OCR</span>
+              <span class="tech-tag">OpenCV</span>
+              <span class="tech-tag">Image Processing</span>
+              <span class="tech-tag">Text Recognition</span>
+              <span class="tech-tag">API Development</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Smart Attendance System</h3>
+            <p class="duration">AI-Powered Automation</p>
+            <p>
+              Designed and implemented an automated attendance tracking system
+              using facial recognition technology that achieved over 99%
+              accuracy in identifying registered individuals.
+            </p>
+            <p>
+              Developed robust face detection and recognition algorithms using
+              OpenCV and deep learning models that can operate in various
+              lighting conditions.
+            </p>
+            <p>
+              Created an efficient database management system for storing
+              student records and attendance data with secure access control.
+            </p>
+            <p>
+              Implemented real-time processing capabilities that allow for
+              immediate attendance marking without significant delays.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">OpenCV</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Facial Recognition</span>
+              <span class="tech-tag">Database Design</span>
+              <span class="tech-tag">Real-time Processing</span>
+              <span class="tech-tag">Computer Vision</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Spam News Detection</h3>
+            <p class="duration">NLP Application</p>
+            <p>
+              Implemented a sophisticated machine learning model that accurately
+              classifies news articles as legitimate or spam, achieving 92%
+              accuracy on test datasets.
+            </p>
+            <p>
+              Developed advanced NLP preprocessing techniques including
+              tokenization, stemming, and TF-IDF vectorization to transform text
+              into machine-processable features.
+            </p>
+            <p>
+              Conducted comparative analysis of various classification
+              algorithms to identify the most effective approach for news
+              reliability assessment.
+            </p>
+            <p>
+              Created a user-friendly web interface that allows users to input
+              article URLs or text for instant credibility evaluation.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">Natural Language Processing</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">scikit-learn</span>
+              <span class="tech-tag">Text Classification</span>
+              <span class="tech-tag">TF-IDF</span>
+              <span class="tech-tag">Web Interface</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Handwritten Digit Recognition</h3>
+            <p class="duration">Deep Learning Project</p>
+            <p>
+              Built a high-accuracy deep learning model using TensorFlow to
+              recognize handwritten digits, achieving 98.5% accuracy on the
+              MNIST dataset.
+            </p>
+            <p>
+              Implemented a convolutional neural network architecture optimized
+              for image pattern recognition while maintaining efficient
+              computational performance.
+            </p>
+            <p>
+              Developed data augmentation techniques to improve model
+              generalization across different handwriting styles and quality
+              levels.
+            </p>
+            <p>
+              Created an interactive web application that allows users to draw
+              digits and receive real-time recognition results.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">TensorFlow</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">CNN</span>
+              <span class="tech-tag">Deep Learning</span>
+              <span class="tech-tag">MNIST</span>
+              <span class="tech-tag">Web Application</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Certifications</h2>
+          <div class="background-text">Certifications</div>
+        </div>
+        <div class="project-cards">
+          <div class="card">
+            <h3>Power BI</h3>
+            <p>
+              Comprehensive certification in data visualization and business
+              intelligence using Microsoft's Power BI platform.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Business Analysis and Process Management</h3>
+            <p>
+              Professional certification covering business analysis
+              methodologies, process optimization, and management techniques.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Fundamentals Of Gen AI</h3>
+            <p>Microsoft, 2024</p>
+            <p>
+              In-depth training on generative AI fundamentals, applications, and
+              implementation strategies.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Professional Data Science</h3>
+            <p>Coursera, 2024</p>
+            <p>
+              Comprehensive data science certification covering statistical
+              analysis, machine learning, and data visualization.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Data Analytics and Visualization</h3>
+            <p>
+              Advanced techniques for data analysis and creating effective
+              visual representations of complex datasets.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Google Cloud Computing</h3>
+            <p>
+              Cloud infrastructure, services, and implementation strategies on
+              the Google Cloud Platform.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Publications</h2>
+          <div class="background-text">Publications</div>
+        </div>
+        <div class="project-cards">
+          <div class="card">
+            <h3>Review Article</h3>
+            <p>
+              "A Review of Big Data Frameworks Apache Hadoop and Apache Spark"
+            </p>
+            <p>
+              Published in 'International Journal of Creative Research Thoughts'
+            </p>
+            <p>
+              Comprehensive analysis of two leading big data processing
+              frameworks, comparing their architectures, performance
+              characteristics, and optimal use cases.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact Me</h2>
+          <div class="background-text">Contact</div>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info">
+            <p>
+              Feel free to reach out to me for any collaboration, job
+              opportunities, or just to say hi!
+            </p>
+            <div class="contact-details">
+              <p><i class="fas fa-phone"></i> 8010148597</p>
+              <p>
+                <i class="fas fa-envelope"></i> anuragsandbhor1111@gmail.com
+              </p>
+            </div>
+            <div class="social-links">
+              <a
+                href="https://www.linkedin.com/in/anurag-sandbhor/"
+                target="_blank"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="https://github.com/anuragsandbhor11" target="_blank"
+                ><i class="fab fa-github"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>© 2025 Anurag Sandbhor. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Menu toggle functionality
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Active link highlighting based on scroll position
+      window.addEventListener("scroll", () => {
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-links a");
+
+        let currentSection = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (window.pageYOffset >= sectionTop - 200) {
+            currentSection = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${currentSection}`) {
+            link.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
